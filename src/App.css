@@ -1,38 +1,120 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.root {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.mainPaper {
+  width: 100%;
+  height: 100%;
+  display: inline-table;
+  background-color: rgb(49, 70, 165) !important;
+  box-sizing: border-box;
+  padding: 50px;
+}
+.cityInputField {
+  width: 100%;
+}
+.weatherCard {
+  display: table-cell;
+  width: 95%;
+  padding-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+}
+.searchContainer {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin: 20px;
 }
-
-.App-link {
-  color: #61dafb;
+.textfieldContainer {
+  margin: 2%;
+  width: 100%;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.searchButtonContainer {
+  margin: 2%;
+}
+.weatherCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.dailyCardContainer {
+  display: flex;
+  margin: 20px;
+}
+.cardContentContainer {
+  margin: 5%;
+}
+.dailyCard {
+  background-color: rgb(204, 217, 245) !important;
+  margin: 10px;
+  width: 264px;
+}
+.MuiCardMedia-root {
+  height: 150px;
+}
+.dateContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.tempContainer {
+  align-items: center;
+}
+.temperature {
+  display: flex;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-items: center;
+}
+.maxminContainer {
+  display: flex;
+  align-content: center;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.maxContainer {
+  display: flex;
+  margin: 5px;
+  justify-content: center;
+}
+.riseAndSetContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+.sunTimeLabel {
+  display: grid;
+  justify-content: center;
+}
+.currentWeatherContainer {
+  display: flex;
+}
+.humidityContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+.hourlyWeatherButton {
+  display: flex;
+  justify-content: center;
+}
+.countryCodeContainer {
+  display: grid;
+  justify-content: center;
+}
+.cityCountryContainer {
+  display: grid;
+  justify-content: center;
+}
+.coordinatesContainer {
+  display: grid;
+  justify-content: center;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }

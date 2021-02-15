@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Paper } from "@material-ui/core";
+import "./App.css";
+import DisplayCard from "./components/displayCard";
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import HourlyData from "./components/hourlyData/hourlyData";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className='root'>
+        <Paper className='mainPaper'>
+          <Switch>
+            <Route exact path='/' component={DisplayCard} />
+            <Route path='/:city/:day' component={HourlyData} />
+            <Route
+              path='/'
+              component={
+                <div>
+                  <h1>404 - Not found</h1>
+                </div>
+              }
+            />
+          </Switch>
+        </Paper>
+      </div>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
