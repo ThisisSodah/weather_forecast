@@ -24,7 +24,7 @@ export default class HourlyData extends Component {
   }
   filterData = (listOfArray, day) => {
     const newArray = listOfArray.filter(
-      (p) => moment.unix(p.dt).format("dddd") == day
+      (p) => moment.unix(p.dt).format("dddd") === day
     );
 
     return newArray;

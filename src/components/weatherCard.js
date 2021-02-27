@@ -1,4 +1,3 @@
-import { Typography } from "@material-ui/core";
 import React, { Component } from "react";
 import DailyCard from "./dailyCard";
 export default class weatherCard extends Component {

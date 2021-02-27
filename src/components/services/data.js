@@ -1,5 +1,3 @@
-import moment from "moment";
-
 const API_key = "f8f19cf08d47ac0dd50d5bd7927bc692";
 
 async function getLatLong(props) {

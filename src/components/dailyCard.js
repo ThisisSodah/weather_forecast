@@ -1,10 +1,4 @@
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardMedia,
-  Typography,
-} from "@material-ui/core";
+import { Card, CardActionArea, CardMedia, Typography } from "@material-ui/core";
 import React from "react";
 import moment from "moment";
 import { WiCelsius, WiSunrise, WiSunset } from "weather-icons-react";
@@ -12,12 +6,11 @@ import WeatherAndDescriptionSection from "./weatherAndDescription/weatherAndDesc
 import { Link } from "react-router-dom";
 
 function formatData(props) {
-  debugger;
   let dailyData = {};
   dailyData.date = moment.unix(props.data.dt).format("DD/MM/YYYY");
   dailyData.day = moment.unix(props.data.dt).format("dddd");
-  dailyData.sunRise = moment.unix(props.data.sunrise).format("HH:mm hrs");
-  dailyData.sunSet = moment.unix(props.data.sunset).format("HH:mm  hrs");
+  dailyData.sunRise = moment.unix(props.data.sunrise).format("HH:mm");
+  dailyData.sunSet = moment.unix(props.data.sunset).format("HH:mm");
   dailyData.minTemp = props.data.temp.min;
   dailyData.maxTemp = props.data.temp.max;
   dailyData.weather = props.data.weather[0].main;
@@ -75,14 +68,14 @@ const DailyCard = (props) => {
                 Sunrise
                 <Typography>
                   <WiSunrise size='68' color='rgb(49, 70, 165)' />
-                  <div className='sunText'>{weather.sunRise}</div>
+                  <div className='sunText'>{weather.sunRise} Hours</div>
                 </Typography>
               </div>
               <div className='sunTimeLabel'>
                 Sunset
                 <Typography>
                   <WiSunset size='68' color='rgb(49, 70, 165)' />
-                  <div className='sunText'>{weather.sunSet}</div>
+                  <div className='sunText'>{weather.sunSet} Hours</div>
                 </Typography>
               </div>
             </div>
