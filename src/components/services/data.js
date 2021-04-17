@@ -5,13 +5,7 @@ async function getLatLong(props) {
     `http://api.openweathermap.org/data/2.5/weather?q=${props}&appid=${API_key}`
   );
   const response = await apiCall.json();
-  if (response.coord) {
-    return response;
-  } else {
-    window.alert(
-      "Sorry I didn't catch that, Could you refresh and enter the name of the City again?"
-    );
-  }
+  return response;
 }
 
 async function getDailyWeather(lat, long, { metric = true }) {

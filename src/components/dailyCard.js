@@ -3,7 +3,7 @@ import React from "react";
 import moment from "moment";
 import { WiCelsius, WiSunrise, WiSunset } from "weather-icons-react";
 import WeatherAndDescriptionSection from "./weatherAndDescription/weatherAndDescriptionSection";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function formatData(props) {
   let dailyData = {};
@@ -25,11 +25,17 @@ function renderWeatherDesc(weather) {
   return <WeatherAndDescriptionSection weather={weather} />;
 }
 const DailyCard = (props) => {
+  let history = useHistory();
+  function openHourlyData(city, day) {
+    history.push(`/${city}/${day}`);
+    console.log(history);
+  }
   const weather = formatData(props);
   return (
     <>
       <Card className='dailyCard' raised={true}>
-        <CardActionArea>
+        <CardActionArea
+          onClick={() => openHourlyData(weather.city, weather.day)}>
           <div className='cardContentContainer'>
             <CardMedia>{renderWeatherDesc(weather)}</CardMedia>
 
@@ -42,7 +48,11 @@ const DailyCard = (props) => {
                 </div>
                 <div className='temperature'>
                   <Typography variant='h5'>{weather.maxTemp}</Typography>
-                  <WiCelsius size='48' color='rgb(49, 70, 165)' />
+                  <WiCelsius
+                    size='54'
+                    color='rgb(49, 70, 165)'
+                    className='celsiusSymbol'
+                  />
                 </div>
               </div>
               <div className='tempContainer'>
@@ -53,7 +63,11 @@ const DailyCard = (props) => {
                 </div>
                 <div className='temperature'>
                   <Typography variant='h5'>{weather.minTemp}</Typography>
-                  <WiCelsius size='48' color='rgb(49, 70, 165)' />
+                  <WiCelsius
+                    size='54'
+                    color='rgb(49, 70, 165)'
+                    className='celsiusSymbol'
+                  />
                 </div>
               </div>
             </div>
@@ -65,18 +79,18 @@ const DailyCard = (props) => {
 
             <div className='riseAndSetContainer'>
               <div className='sunTimeLabel'>
-                Sunrise
-                <Typography>
-                  <WiSunrise size='68' color='rgb(49, 70, 165)' />
-                  <div className='sunText'>{weather.sunRise} Hours</div>
+                <Typography variant='caption' className='sunSetAndSunRise'>
+                  Sunrise
                 </Typography>
+                <WiSunrise size='68' color='primary' className='sunIcon' />
+                <div className='sunText'>{weather.sunRise} Hours</div>
               </div>
               <div className='sunTimeLabel'>
-                Sunset
-                <Typography>
-                  <WiSunset size='68' color='rgb(49, 70, 165)' />
-                  <div className='sunText'>{weather.sunSet} Hours</div>
+                <Typography variant='caption' className='sunSetAndSunRise'>
+                  Sunset
                 </Typography>
+                <WiSunset size='68' color='primary' className='sunIcon' />
+                <div className='sunText'>{weather.sunSet} Hours</div>
               </div>
             </div>
             <div className='dateContainer'>

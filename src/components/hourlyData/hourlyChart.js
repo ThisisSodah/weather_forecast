@@ -1,5 +1,4 @@
 import { Typography } from "@material-ui/core";
-import React from "react";
 import { Line } from "react-chartjs-2";
 const HourlyChart = (props) => {
   return (
@@ -24,7 +23,7 @@ const HourlyChart = (props) => {
         }}
       />
       <div className='footer'>
-        <Typography variant='h4' color='secondary'>
+        <Typography variant='h4' color=''>
           Hourly data for {props.city} for the day of {props.day}
         </Typography>
       </div>

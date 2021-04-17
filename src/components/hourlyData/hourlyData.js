@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import fetchData from "../services/data";
 import moment from "moment";
 import HourlyChart from "./hourlyChart";
-import { Card } from "@material-ui/core";
+import { Card, Typography } from "@material-ui/core";
 
 export default class HourlyData extends Component {
   constructor(props) {
@@ -40,15 +40,16 @@ export default class HourlyData extends Component {
   };
   render() {
     return (
-      <>
-        <Card className='weatherCard'>
-          <HourlyChart
-            data={this.state.chartData}
-            city={this.state.city}
-            day={this.state.day}
-          />
-        </Card>
-      </>
+      <div className='pageContainer'>
+        <div className='titleContainer'>
+          <Typography variant='h4'>Weather App</Typography>
+        </div>
+        <HourlyChart
+          data={this.state.chartData}
+          city={this.state.city}
+          day={this.state.day}
+        />
+      </div>
     );
   }
 }
